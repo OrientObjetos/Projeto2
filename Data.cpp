@@ -33,4 +33,8 @@ class Data{
         int getAno(){
             return ano;
         }
+
+        string getData(){
+            return to_string(getDia()) + "/" + to_string(getMes()) + "/" + to_string(getAno());
+        }
 };
