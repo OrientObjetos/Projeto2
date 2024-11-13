@@ -1,19 +1,79 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
 #include "Pessoa.cpp"
 #include "Data.cpp"
 #include "Produto.cpp"
 using namespace std;
 
 class Pedido{
-    private:
-    int num;
-    Pessoa cliente;
-    Data data;
-    vector<Produto> produtos;
-    float totalPedido;
+    protected:
+        int numero;
+        Pessoa cliente;
+        Data data;
+        Produto* produtos;
+        int tamanhoProdutos;
+        float totalPedido;
 
-    
+    public:
+        Pedido(int numero, Pessoa cliente, Data data, Produto *prod, int tam_prod):
+            numero{numero}, cliente{cliente}, data{data} {
+                tamanhoProdutos = tam_prod;
+                *produtos = *prod;
+                Produto* produtos[tamanhoProdutos];
+            }
+
+        float calculaPreco(Produto *produtos, int tamanhoProdutos){
+            for (int i = 0; i < tamanhoProdutos; i++){
+                totalPedido = totalPedido + produtos[i].getCusto();
+            }
+            totalPedido = totalPedido * 1.5;
+            setPedido(totalPedido);
+            return totalPedido;
+        }
+
+        void setNumero(int numero){
+            this -> numero = numero;
+        }
+
+        void setData(Data data){
+            this -> data = data;
+        }
+
+        void setPedido(int totalPedido){
+            this -> totalPedido = totalPedido;
+        }
+
+        int getNumero(){
+            return numero;
+        }
+
+        Data getData(){
+            return data;
+        }
+
+        int getPedido(){
+            return totalPedido;
+        }
+        
+        void print(){
+            cout << "Pedido n°" << setw(3) << setfill('0') << this -> numero << endl;
+            cout << "Cliente: " << this -> cliente.getNome() << endl;
+            cout << "Data: " << this -> data.getData() << endl;
+            cout << "Dados do Pedido: ";
+            for (int i = 0; i < tamanhoProdutos; i++){
+                produtos[i].print();
+                cout << endl;
+            }
+            cout << fixed << setprecision(2);
+            cout << "Total do pedido: R$" << this -> calculaPreco(produtos, tamanhoProdutos) << endl;
+            cout << "Teste de custo: R$" << this -> getPedido() << endl;
+            cout << endl;
+        }
+};
+
+//-------------------------------------------------------------------------------------------------------------
+/*    
     //Construtores da classe Pedido
     public Pedido() {
     }
@@ -92,4 +152,4 @@ class Pedido{
     cout << endl;
     }
 };
-
+*/

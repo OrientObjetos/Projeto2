@@ -3,7 +3,7 @@
 using namespace std;
 
 class Endereco{
-    private:
+    protected:
         string estado, cidade, bairro, rua;
         int numero;
 

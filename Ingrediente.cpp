@@ -1,28 +1,50 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-class Processo{
-    private:
+class Ingrediente{
+    protected:
         string nome;
-        float custo;
-        float tempoOperador;
-        float tempoEquipamento;
-        float custoOperador;
-        float custoEquipamento;
+        float preco;
+        int quantidade;
 
     public:
-        Processo(string nome, float tempoOperador, float tempoEquipamento, float custoOperador, float custoEquipamento):
-            nome{nome}, tempoOperador{tempoOperador}, tempoEquipamento{tempoEquipamento}, custoOperador{custoOperador}, custoEquipamento{custoEquipamento}{}
+        /*Ingrediente(string nome, float preco):
+            nome{nome}, preco{preco} {}*/
 
-        float calculaCusto(float tOp, float cOp, float tEq, float cEq){
-            return tOp*cOp + tEq*cEq;
+        Ingrediente(string nome, float preco, int quantidade):
+            nome{nome}, preco{preco}, quantidade{quantidade} {}
+
+        void setNome(string nome){
+            this -> nome = nome;
         }
-        
+
+        void setPreco(float preco){
+            this -> preco = preco;
+        }
+
+        void setQuantidade(int quantidade){
+            this -> quantidade = quantidade;
+        }
+
+        string getNome(){
+            return nome;
+        }
+
+        float getPreco(){
+            return preco;
+        }
+       
+        int getQuantidade(){
+            return quantidade;
+        }        
+
         void print(){
-            cout << "Dados do processo" << endl;
+            cout << "Dados do ingredente" << endl;
             cout << "Nome: " << this -> nome << endl;
-            cout << "Custo: " << this -> calculaCusto(tempoOperador, custoOperador, tempoEquipamento, custoEquipamento) << endl;
+            cout << "Preço: " << fixed << setprecision(2) << this -> preco << endl;
+            cout << "Quantidade: " << this -> quantidade << endl;
             cout << endl;
         }
-}
+};

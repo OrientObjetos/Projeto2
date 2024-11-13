@@ -3,12 +3,12 @@
 using namespace std;
 
 class Data{
-    private:
+    protected:
         int dia, mes, ano;
 
     public:
         Data(int dia, int mes, int ano):
-            dia{dia}, mes{mes}, ano{ano}{};
+            dia{dia}, mes{mes}, ano{ano} {};
 
         void setDia(int dia){
             this -> dia = dia;

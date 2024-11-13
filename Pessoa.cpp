@@ -5,7 +5,7 @@
 using namespace std;
 
 class Pessoa{
-    private:
+    protected:
         string nome;
         string sobrenome;
         long cpf;
@@ -13,9 +13,12 @@ class Pessoa{
         Data nascimento;
         Endereco endereco;
 
-    public:
+    public:        
+        /*Pessoa(string nome, string sobrenome):
+            nome{nome}, sobrenome{sobrenome}{}*/
+
         Pessoa(string nome, string sobrenome, long cpf, int idade, int dia, int mes, int ano, Endereco endereco):
-            nome{nome}, sobrenome{sobrenome}, cpf{cpf}, idade{idade}, nascimento{dia, mes, ano}, endereco{endereco}{}
+            nome{nome}, sobrenome{sobrenome}, cpf{cpf}, idade{idade}, nascimento{dia, mes, ano}, endereco{endereco} {}
 
         void setNome(string nome){
             this -> nome = nome;
@@ -29,7 +32,7 @@ class Pessoa{
             this -> cpf = cpf;
         }
 
-        void setidade(int idade){
+        void setIdade(int idade){
             this -> idade = idade;
         }
 
