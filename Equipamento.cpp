@@ -29,10 +29,9 @@ class Equipamento{
         }
 
         void print(){
-            cout << fixed << setprecision(2);
             cout << "Dados do equipamento" << endl;
             cout << "Nome: " << this -> nome << endl;
-            cout << "Depreciacao/hora: " << this -> depreciacaoHora << endl;
+            cout << "Depreciacao/hora: R$" << fixed << setprecision(2) << this -> depreciacaoHora << endl;
             cout << endl;
         }
 };

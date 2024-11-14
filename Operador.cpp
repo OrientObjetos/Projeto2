@@ -10,11 +10,8 @@ class Operador: public Pessoa{
         float salarioHora;
 
     public:
-        /*Operador(string nome, string sobrenome, string cargo, float salarioHora):
-            Pessoa(nome, sobrenome), cargo{cargo}, salarioHora{salarioHora} {}*/
-
-        Operador(string nome, string sobrenome, long cpf, int idade, int dia, int mes, int ano, Endereco endereco, string cargo, float salarioHora):
-            Pessoa(nome, sobrenome, cpf, idade, dia, mes, ano, endereco), cargo{cargo}, salarioHora{salarioHora} {}
+        Operador(string nome, string sobrenome, string cargo, float salarioHora):
+            Pessoa(nome, sobrenome), cargo{cargo}, salarioHora{salarioHora} {}
 
         void setNome(string nome){
             this -> nome = nome;
@@ -44,16 +41,15 @@ class Operador: public Pessoa{
             return cargo;
         }
 
-        int getSalarioH(){
+        float getSalarioH(){
             return salarioHora;
         }
 
-        virtual void print(){ 
-            cout << fixed << setprecision(2);
+        virtual void print(){
             cout << "Dados do funcionário" << endl;
             cout << "Nome: " << this -> getNome() << " " << this -> getSobrenome() << endl;
             cout << "Cargo: " << this -> cargo << endl;
-            cout << "Salário-hora: " << this -> salarioHora << endl;
+            cout << "Salário-hora: R$" << fixed << setprecision(2) << this -> salarioHora << endl;
             cout << endl;
         }
 };

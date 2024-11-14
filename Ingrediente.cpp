@@ -7,11 +7,11 @@ class Ingrediente{
     protected:
         string nome;
         float preco;
-        int quantidade;
+        int quantidade = 0;
 
     public:
-        /*Ingrediente(string nome, float preco):
-            nome{nome}, preco{preco} {}*/
+        Ingrediente(string nome, float preco):
+            nome{nome}, preco{preco} {}
 
         Ingrediente(string nome, float preco, int quantidade):
             nome{nome}, preco{preco}, quantidade{quantidade} {}
@@ -41,9 +41,9 @@ class Ingrediente{
         }        
 
         void print(){
-            cout << "Dados do ingredente" << endl;
+            cout << "Dados do ingrediente" << endl;
             cout << "Nome: " << this -> nome << endl;
-            cout << "Preço: " << fixed << setprecision(2) << this -> preco << endl;
+            cout << "Preço: R$" << fixed << setprecision(2) << this -> preco << endl;
             cout << "Quantidade: " << this -> quantidade << endl;
             cout << endl;
         }

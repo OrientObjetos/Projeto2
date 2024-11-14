@@ -66,9 +66,8 @@ class Produto{
             for (int i = 0; i < tamanhoProcessos; i++){
                 cout << "  - " << processos[i].getNome() << endl;
             }
-            cout << fixed << setprecision(2);
-            cout << "Custo: R$" << this -> calculaCusto(ingredientes, tamanhoIngredientes, processos, tamanhoProcessos) << endl;
-            cout << "Teste de custo: R$" << this -> custo << endl;
+            cout << "Custo: R$" << fixed << setprecision(2) << this -> calculaCusto(ingredientes, tamanhoIngredientes, processos, tamanhoProcessos) << endl;
+            cout << "Teste de custo: R$" << fixed << setprecision(2) << this -> custo << endl;
             cout << endl;
         }
 };

@@ -28,7 +28,7 @@ class Processo{
             this -> nome = nome;
         }
 
-        void setCusto(int custo){
+        void setCusto(float custo){
             this -> custo = custo;
         }
 
@@ -41,11 +41,10 @@ class Processo{
         }
         
         void print(){
-            cout << fixed << setprecision(2);
             cout << "Dados do processo" << endl;
             cout << "Nome: " << this -> nome << endl;
-            cout << "Custo: R$" << this -> calculaCusto(tempoOperador, custoOperador, tempoEquipamento, custoEquipamento) << endl;
-            cout << "Teste de custo: R$" << this -> custo << endl;
+            cout << "Custo: R$" << fixed << setprecision(2) << this -> calculaCusto(tempoOperador, custoOperador, tempoEquipamento, custoEquipamento) << endl;
+            cout << "Teste de custo: R$" << fixed << setprecision(2) << this -> custo << endl;
             cout << endl;
         }
 };

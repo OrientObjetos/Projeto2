@@ -13,6 +13,7 @@ Data de apresentação do projeto: 19/11/2024
 #pragma once
 #include <iostream>
 #include <iomanip>
+#include "Cliente.cpp"
 #include "Data.cpp"
 #include "Endereco.cpp"
 #include "Equipamento.cpp"
@@ -25,10 +26,10 @@ Data de apresentação do projeto: 19/11/2024
 using namespace std;
 
 int main(){
-    /*
+    
     // Definição dos operadores
     Operador Cozinheiro("Eric", "Jacquin", "cozinheiro", 18.66);        // salário-hora baseado no salário mensal de R$2.873.64
-    Operador Cozinheira("Ana", "Maria", "cozinheira", 18.66);        // salário-hora baseado no salário mensal de R$2.873.64
+    Operador Cozinheira("Ana", "Maria Braga", "cozinheira", 18.66);     // salário-hora baseado no salário mensal de R$2.873.64
     
     // Definição dos equipamentos
     Equipamento Forno("Forno", 2.55);       // depreciação-hora baseada no preço R$3.924,00 e depreciação anual de 10%
@@ -36,6 +37,23 @@ int main(){
     // Definição dos processos
     Processo Assar("Assar", 1.58, 0.67, Cozinheiro.getSalarioH(), Forno.getDepreciacaoH()); // 95 min de preparo total e 40 min para assar
 
+    Processo* proc[2];
+    proc[0] = &Assar;
+    proc[1] = &Assar;
+
+    // Definição dos ingredientes
+    Ingrediente Ovo("Ovo", 2.50, 1);
+
+    Ingrediente* ingr[2];
+    ingr[0] = &Ovo;
+    ingr[2] = &Ovo;
+
+    // Definição dos produtos
+    Produto Bolo("Bolo", ingr[0], 2, proc[0], 2);
+
     Cozinheiro.print();
-    */
+    Cozinheira.print();
+    Forno.print();
+    Assar.print();
+    Ovo.print();
 }

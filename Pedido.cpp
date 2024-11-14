@@ -65,9 +65,8 @@ class Pedido{
                 produtos[i].print();
                 cout << endl;
             }
-            cout << fixed << setprecision(2);
-            cout << "Total do pedido: R$" << this -> calculaPreco(produtos, tamanhoProdutos) << endl;
-            cout << "Teste de custo: R$" << this -> getPedido() << endl;
+            cout << "Total do pedido: R$" << fixed << setprecision(2) << this -> calculaPreco(produtos, tamanhoProdutos) << endl;
+            cout << "Teste de custo: R$" << fixed << setprecision(2) << this -> getPedido() << endl;
             cout << endl;
         }
 };
