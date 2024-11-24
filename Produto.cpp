@@ -13,10 +13,6 @@ class Produto{
         vector <Ingrediente> &ingredientes;
         vector <Processo> &processos;
         Ingrediente sabor;
-        //static const int tamanhoIngredientes = 3;
-        //static const int tamanhoProcessos = 1;
-        //Ingrediente* ingredientes[tamanhoIngredientes];
-        //Processo* processos[tamanhoProcessos];
         double custoProduto = 0;
         double precoProduto = 0;
 
@@ -29,19 +25,13 @@ class Produto{
             double custoIngrediente = 0;
             double custoProcesso = 0;
             double preco = 0;
-            //cout << endl;
             for (int i = 0; i < ingredientes.size(); i++){
                 custoIngrediente = custoIngrediente + (ingredientes[i].getPreco()) * (ingredientes[i].getQuantidade());
-                //cout << "Preço ingrediente: " << precoIngrediente << endl;
             }
             for (int i = 0; i < processos.size(); i++){
                 custoProcesso = custoProcesso + processos[i].calculaCusto(processos[i].getTO(), processos[i].getCO(), processos[i].getTE(), processos[i].getCE());
-                //cout << "Preço processo: " << precoProcesso << endl;
             }
             custoProduto = custoIngrediente + custoProcesso;
-            //cout << "Ingrediente total: " << precoIngrediente << endl;
-            //cout << "Processo total: " << precoProcesso << endl;
-            //cout << "Custo total: " << custoProduto << endl;
             setCusto(custoProduto);
             preco = calculaPreco(custoProduto);
             return preco;
@@ -83,17 +73,20 @@ class Produto{
         
         void print(){
             //cout << "Dados do produto:" << endl;
-            cout << "  Nome: " << this -> nome << endl;
+            //cout << "  Nome: " << this -> nome << endl;
+            cout << " -" << this -> nome << endl;
             cout << "  Preço: R$" << fixed << setprecision(2) << round(this -> calculaCusto(ingredientes, processos, sabor)) << endl;
             cout << "  Ingredientes utilizados: " << endl;
             for (int i = 0; i < ingredientes.size(); i++){
                 cout << "    - " << ingredientes[i].getNome() << endl;
             }
+            if (sabor.getNome() != "Nada"){
+                cout << "    - " << sabor.getNome() << endl;
+            }
             cout << "  Processos realizados: " << endl;
             for (int i = 0; i < processos.size(); i++){
                 cout << "    - " << processos[i].getNome() << endl;
             }
-            //cout << "  Teste de custo: R$" << fixed << setprecision(2) << this -> custoProduto << endl;
             cout << endl;
         }
 };

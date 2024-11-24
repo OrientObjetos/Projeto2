@@ -7,7 +7,7 @@ R.A: 11.121.526-5
 Projeto 2 da disciplina CCP140 - Orientação a Objetos, 
 do Departamento de Ciência da Computação, ministrada pelo
 Professor Dr. Leonardo Anjoletto
-Data de apresentação do projeto: 19/11/2024
+Data de apresentação do projeto: 24/11/2024
 */
 
 #pragma once
@@ -55,6 +55,8 @@ void Cadastrar(char opcao){
     cout << endl << "=============================================================" << endl << endl;
     cout << "                  Cadastro do novo cliente                   " << endl;
     cout << endl << "—————————————————————————————————————————————————————————————" << endl << endl;
+    
+    // Pede todos os dados necessários para cadastrar o cliente
     cout << "Nome: ";
     cin >> nome;
     cout << "Sobrenome: ";
@@ -81,6 +83,7 @@ void Cadastrar(char opcao){
     getline(cin, estado);
     cout << endl << "=============================================================" << endl << endl;
 
+    // Abre o aquivo e adiciona os dados do cliente no arquivo
     fstream arquivo;
     arquivo.open("Clientes.txt", std::ios_base::app);
     if(arquivo.is_open()){
@@ -97,6 +100,8 @@ void Cadastrar(char opcao){
         arquivo.close();
         cout << "Cadastro realizado com sucesso!" << endl;
     }
+
+    // Caso ocorra algum probema com o arquivo, exibe uma mensagem de erro
     else{
         cout << "Erro ao realizar o cadastro!" << endl;
     }
@@ -208,28 +213,22 @@ void Pedir(char opcao, vector <Ingrediente> ingredientes, vector <Ingrediente> s
 
             // Define os produtos que o cliente pode pedir
             Produto boloAbacaxi("Bolo de abacaxi", ingredientes, processos, sabores[0]);
-            //Ingrediente Abacaxi = sabores[0];
-            //boloAbacaxi.setSabor(Abacaxi);
             Produto boloBanana("Bolo de banana", ingredientes, processos, sabores[1]);
-            //boloBanana.setSabor(sabores[1]);
             Produto boloChocolate("Bolo de chocolate", ingredientes, processos, sabores[2]);
-            //boloChocolate.setSabor(sabores[2]);
             Produto boloFuba("Bolo de fubá", ingredientes, processos, sabores[3]);
-            //boloFuba.setSabor(sabores[3]);
             Produto boloLaranja("Bolo de laranja", ingredientes, processos, sabores[4]);
-            //boloLaranja.setSabor(sabores[4]);
-            Produto boloSimples("Bolo de simples", ingredientes, processos, sabores[5]);
+            Produto boloSimples("Bolo simples", ingredientes, processos, sabores[5]);
 
             // Variável para armazenar as opções escolhidas
             vector <int> opcoes;
             int num;
 
+            // Variável para armazenar os produtos do pedido
             vector <Produto> produtos;
-            //fazer igual ao cliente, criar um ponteiro e usar ele dentro do switch
 
             system("clear");
             cout << endl << "=============================================================" << endl << endl;
-            cout << "\tSeja bem-vindo(a) " << cliente -> getNome() << " " << cliente -> getSobrenome() << "!" << endl;
+            cout << "\t  Seja bem-vindo(a) " << cliente -> getNome() << " " << cliente -> getSobrenome() << "!" << endl;
             cout << endl << "—————————————————————————————————————————————————————————————" << endl << endl;
             cout << "Temos os seguintes sabores disponíveis:" << endl;
             cout << "1 - Bolo de abacaxi" << endl;
@@ -239,14 +238,20 @@ void Pedir(char opcao, vector <Ingrediente> ingredientes, vector <Ingrediente> s
             cout << "5 - Bolo de laranja" << endl;
             cout << "6 - Bolo simples" << endl;
             cout << endl << "=============================================================" << endl << endl;
-            cout << "Digite os números dos bolos que gostaria de pedir, separados" << endl << "apenas por espaço (caso queira mais de 1 bolo do mesmo sabor," << endl << "basta repetir o número):" << endl;
+            cout << "Digite os números dos bolos que gostaria de pedir, separados" << endl << 
+                    "apenas por espaço, e digite 0 para encerrar as escolhas. Caso" << endl << 
+                    "queira mais de 1 bolo do mesmo sabor, basta repetir o número." << endl;
 
-            // Armazena as opções escolhidas enquanto o usuario digitar um número inteiro
-            while (cin >> num){
+            // Armazena as opções escolhidas enquanto o usuário digitar um número inteiro diferente de 0
+            while ((cin >> num) && (num != 0)){
                 opcoes.push_back(num);
             }
             cin.ignore();
 
+            system("clear");
+            cout << endl << "=============================================================" << endl << endl;
+            cout << "\t  Seja bem-vindo(a) " << cliente -> getNome() << " " << cliente -> getSobrenome() << "!" << endl;
+            cout << endl << "—————————————————————————————————————————————————————————————" << endl << endl;
             for (int i = 0; i < opcoes.size(); i++){
                 if (opcoes[i] == 1){
                     produtos.push_back(boloAbacaxi);
@@ -267,27 +272,26 @@ void Pedir(char opcao, vector <Ingrediente> ingredientes, vector <Ingrediente> s
                     produtos.push_back(boloSimples);
                 }
                 else{
-                    cout << "Produto " << opcoes[i] << " inválido!" << endl;
+                    cout << "Produto " << opcoes[i] << " inválido!" << endl << endl;
                 }
             }
 
+            // Cria o pedido e exibe as informações
             Pedido ped(cliente, hoje, produtos);
             ped.print();
+
+            // Salva o pedido em um vetor de pedidos
+            vector <Pedido> pedidos;
+            pedidos.push_back(ped);
         }
 
         // Caso o cliente não tenha sido encontrado, exibe uma mensagem de erro
         else{
-            cout << "Cliente com CPF " << numcpf << " não encontrado!" << endl << "Faça o cadastro antes de realizar o pedido" << endl;
+            cout << "Cliente com CPF " << numcpf << " não encontrado!" << endl << "Faça o cadastro antes de realizar o pedido" << endl << endl;
         }
-
-        //cout << endl << "Nomes: " << endl;
-        //cout << cli.size() << endl;
-        //for (int i = 0; i < cli.size(); i++){
-        //    cout << cli[i].getNome() << endl;
-        //}
     }
 
-    cout << endl << "=============================================================" << endl << endl;
+    cout << "=============================================================" << endl << endl;
     cout << "Pressione ENTER para retornar ao Menu" << endl;
     cin.ignore();
 }
@@ -329,7 +333,10 @@ void Encerrar(char opcao) {
     // Enquanto 'S', 's', 'N', ou 'n' não for digitado, repete a pergunta
     while (opcao != 'S' || opcao != 's' || opcao != 'N' || opcao != 'n') {
         system("clear");
-        cout << endl << "Deseja mesmo encerrar o programa? Todas as alterações feitas serão salvas automaticamente. (S/N)" << endl;
+        cout << endl << "=============================================================" << endl << endl;
+        cout << "                      Encerrar sessão                        " << endl;
+        cout << endl << "—————————————————————————————————————————————————————————————" << endl << endl;
+        cout << "Deseja mesmo encerrar o programa? Todas as alterações feitas" << endl << "serão salvas automaticamente. (S/N)" << endl;
         cin >> opcao;
 
         // Se 'S' ou 's' for digitado, o programa é encerrado
@@ -347,13 +354,8 @@ void Encerrar(char opcao) {
 }
 
 int main(){
-    // Definição dos clientes
-    //Endereco e1("SP", "São Bernardo do Campo", "Assunção", "Av. Humberto de Alencar Castelo Branco", 4182);
-    //Cliente C1("Gustavo", "Rosell", 12345678900, 21, 20, 7, 2003, e1);
-
     // Definição dos operadores
     Operador Cozinheiro("Eric", "Jacquin", "cozinheiro", 18.66);        // salário-hora baseado no salário mensal de R$2.873.64
-    //Operador Cozinheira("Ana", "Maria Braga", "cozinheira", 18.66);     // salário-hora baseado no salário mensal de R$2.873.64
     
     // Definição dos equipamentos
     Equipamento Forno("Forno", 2.55);       // depreciação-hora baseada no preço R$3.924,00 e depreciação anual de 10%
@@ -370,31 +372,12 @@ int main(){
 
     // Definição dos sabores
     Ingrediente Abacaxi("Abacaxi", 1, 1, "unidades");
-    Ingrediente Banana("Farinha", 1, 1, "unidades");
+    Ingrediente Banana("Banana", 1, 1, "unidades");
     Ingrediente Chocolate("Chocolate em pó", 0.1, 200, "gramas");
     Ingrediente Fuba("Fubá", 0.1, 360, "gramas");
     Ingrediente Laranja("Laranja", 1, 1, "unidades");
     Ingrediente Nada("Nada", 0, 0, "nada");
     vector <Ingrediente> sabor = {Abacaxi, Banana, Chocolate, Fuba, Laranja, Nada};
-
-    // Definição dos produtos
-    //Produto Bolo("Bolo", ingr, proc);
-    //vector <Produto> prod = {Bolo, Bolo};
-
-    // Definição dos pedidos
-    //Data d1(15, 11, 2023);
-    //Pedido P1(1, C1, d1, prod);
-
-    //Cozinheiro.print();
-    //Cozinheira.print();
-    //Forno.print();
-    //Assar.print();
-    //Ovo.print();
-    //Farinha.print();
-    //Leite.print();
-    //Bolo.print();
-    //C1.print();
-    //P1.print();
 
     char opcao;
     opcao = '9';

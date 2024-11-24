@@ -22,7 +22,7 @@ class Pedido{
 
         float calculaPreco(vector <Produto> produtos){
             for (int i = 0; i < produtos.size(); i++){
-                totalPedido = totalPedido + produtos[i].getPreco();
+                totalPedido = totalPedido + round(produtos[i].getPreco());
             }
             setPedido(totalPedido);
             return totalPedido;
@@ -57,15 +57,14 @@ class Pedido{
             cout << "Informações do pedido:" << endl;
             //cout << "\tPedido n.° " << setw(3) << setfill('0') << this -> numero << endl;
             cout << "Cliente: " << cliente -> getNome() << " " << cliente -> getSobrenome() << endl;
-            cout << "Endereço de entrega: " << cliente -> getEndereco() << endl;
+            cout << "Endereço de entrega: " << endl;
+            cout << cliente -> getEndereco() << endl;
             cout << "Data do pedido: " << this -> data.getData() << endl;
             cout << "Dados do Pedido: " << endl;
             for (int i = 0; i < produtos.size(); i++){
                 produtos[i].print();
-                //cout << endl;
             }
-            cout << "Total do pedido: R$" << fixed << setprecision(2) << round(this -> calculaPreco(produtos)) << endl;
-            //cout << "Teste de custo: R$" << fixed << setprecision(2) << this -> getPedido() << endl;
+            cout << "Total do pedido: R$" << fixed << setprecision(2) << this -> calculaPreco(produtos) << endl;
             cout << endl;
         }
 };
