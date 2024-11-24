@@ -8,17 +8,17 @@ using namespace std;
 class Processo{
     protected:
         string nome;
-        float custo;
-        float tempoOperador;
-        float tempoEquipamento;
-        float custoOperador;
-        float custoEquipamento;
+        double tempoOperador = 0;
+        double tempoEquipamento = 0;
+        double custoOperador = 0;
+        double custoEquipamento = 0;
+        double custo = 0;
 
     public:
-        Processo(string nome, float tempoOperador, float tempoEquipamento, float custoOperador, float custoEquipamento):
+        Processo(string nome, double tempoOperador, double tempoEquipamento, double custoOperador, double custoEquipamento):
             nome{nome}, tempoOperador{tempoOperador}, tempoEquipamento{tempoEquipamento}, custoOperador{custoOperador}, custoEquipamento{custoEquipamento} {}
 
-        float calculaCusto(float tOp, float cOp, float tEq, float cEq){
+        double calculaCusto(double tOp, double cOp, double tEq, double cEq){
             custo = tOp*cOp + tEq*cEq;
             setCusto(custo);
             return custo;
@@ -28,7 +28,7 @@ class Processo{
             this -> nome = nome;
         }
 
-        void setCusto(float custo){
+        void setCusto(double custo){
             this -> custo = custo;
         }
 
@@ -36,8 +36,24 @@ class Processo{
             return nome;
         }
 
-        float getCusto(){
+        double getCusto(){
             return custo;
+        }
+
+        double getTO(){
+            return tempoOperador;
+        }
+
+        double getCO(){
+            return custoOperador;
+        }
+
+        double getTE(){
+            return tempoEquipamento;
+        }
+
+        double getCE(){
+            return custoEquipamento;
         }
         
         void print(){

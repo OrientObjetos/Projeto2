@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
 #include "Pessoa.cpp"
 #include "Data.cpp"
 #include "Endereco.cpp"
@@ -7,8 +8,6 @@ using namespace std;
 
 class Cliente: public Pessoa{
     protected:
-        string nome;
-        string sobrenome;
         long cpf;
         int idade;
         Data nascimento;

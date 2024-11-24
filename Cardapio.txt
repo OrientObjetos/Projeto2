@@ -1,0 +1,29 @@
+- Abacaxi:
+  Ingredientes: abacaxi, açúcar, farinha, fermento, leite, 
+   manteiga, ovo.
+R$54,00
+
+- Banana:
+  Ingredientes: açúcar, banana, farinha, fermento, leite, 
+   manteiga, ovo.
+R$54,00
+  
+- Chocolate
+  Ingredientes: açúcar, chocolate em pó, farinha, fermento, 
+   leite, manteiga, ovo.
+R$54,00
+
+- Fubá
+  Ingredientes: açúcar, farinha, fermento, fubá, leite, 
+   manteiga, ovo.
+R$54,00
+
+- Laranja
+  Ingredientes: açúcar, farinha, fermento, laranja, leite, 
+   manteiga, ovo.
+R$54,00
+
+- Simples
+  Ingredientes: açúcar, farinha, fermento, leite, manteiga, 
+   ovo.
+R$50,00

@@ -4,12 +4,12 @@ using namespace std;
 
 class Endereco{
     protected:
-        string estado, cidade, bairro, rua;
+        string estado, cidade, bairro, endereco;
         int numero;
 
     public:
-        Endereco(string estado, string cidade, string bairro, string rua, int numero):
-            estado{estado}, cidade{cidade}, bairro{bairro}, rua{rua}, numero{numero} {};
+        Endereco(string estado, string cidade, string bairro, string endereco, int numero):
+            estado{estado}, cidade{cidade}, bairro{bairro}, endereco{endereco}, numero{numero} {};
 
         void setEstado(string estado){
             this -> estado = estado;
@@ -23,8 +23,8 @@ class Endereco{
             this -> bairro = bairro;
         }
 
-        void setRua(string rua){
-            this -> rua = rua;
+        void setEndereco(string endereco){
+            this -> endereco = endereco;
         }
 
         void setNumero(int numero){
@@ -32,6 +32,6 @@ class Endereco{
         }
 
         string getEndereco(){
-            return rua + ", " + to_string(numero) + "\t" + bairro;
+            return endereco + ", " + to_string(numero) + " - " + bairro + ", " + cidade + " - " + estado;
         }
 };
