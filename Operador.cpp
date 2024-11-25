@@ -52,4 +52,11 @@ class Operador: public Pessoa{
             cout << "Salário-hora: R$" << fixed << setprecision(2) << this -> salarioHora << endl;
             cout << endl;
         }
+
+        virtual void printLog(ostream &saida){
+            //saida << "Dados do funcionário" << endl;
+            saida << "Nome: " << this -> getNome() << " " << this -> getSobrenome() << endl;
+            saida << "Cargo: " << this -> cargo << endl;
+            saida << "Salário-hora: R$" << fixed << setprecision(2) << this -> salarioHora << endl << endl;
+        }
 };

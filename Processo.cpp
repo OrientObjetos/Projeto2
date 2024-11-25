@@ -60,7 +60,13 @@ class Processo{
             cout << "Dados do processo" << endl;
             cout << "Nome: " << this -> nome << endl;
             cout << "Custo: R$" << fixed << setprecision(2) << this -> calculaCusto(tempoOperador, custoOperador, tempoEquipamento, custoEquipamento) << endl;
-            cout << "Teste de custo: R$" << fixed << setprecision(2) << this -> custo << endl;
             cout << endl;
+        }
+
+        void printLog(ostream &saida){
+            //saida << "Dados do processo" << endl;
+            saida << "Nome: " << this -> nome << endl;
+            saida << "Custo: R$" << fixed << setprecision(2) << this -> calculaCusto(tempoOperador, custoOperador, tempoEquipamento, custoEquipamento) << endl;
+            saida << endl;
         }
 };

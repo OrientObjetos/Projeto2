@@ -34,4 +34,9 @@ class Pessoa{
             cout << "Nome: " << this -> getNome() << " " << this -> getSobrenome() << endl;
             cout << endl;
         }
+
+        virtual void printLog(ostream &saida){ 
+            //saida << "Dados da pessoa" << endl;
+            saida << "Nome: " << this -> getNome() << " " << this -> getSobrenome() << endl << endl;
+        }
 };

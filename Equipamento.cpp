@@ -34,4 +34,11 @@ class Equipamento{
             cout << "Depreciacao/hora: R$" << fixed << setprecision(2) << this -> depreciacaoHora << endl;
             cout << endl;
         }
+
+        void printLog(ostream &saida){
+            //saida << "Dados do equipamento" << endl;
+            saida << "Nome: " << this -> nome << endl;
+            saida << "Depreciacao/hora: R$" << fixed << setprecision(2) << this -> depreciacaoHora << endl;
+            saida << endl;
+        }
 };

@@ -89,4 +89,22 @@ class Produto{
             }
             cout << endl;
         }
+
+        void printLog(ostream &saida){
+            //saida << "Dados do produto:" << endl;
+            saida << "Nome: " << this -> nome << endl;
+            saida << "Preço: R$" << fixed << setprecision(2) << round(this -> calculaCusto(ingredientes, processos, sabor)) << endl;
+            saida << "Ingredientes utilizados: " << endl;
+            for (int i = 0; i < ingredientes.size(); i++){
+                saida << " - " << ingredientes[i].getNome() << endl;
+            }
+            if (sabor.getNome() != "Nada"){
+                saida << " - " << sabor.getNome() << endl;
+            }
+            saida << "Processos realizados: " << endl;
+            for (int i = 0; i < processos.size(); i++){
+                saida << " - " << processos[i].getNome() << endl;
+            }
+            saida << endl;
+        }
 };

@@ -55,7 +55,6 @@ class Pedido{
         // fazer ele receber uma string, se a string for null imprime no terminal, se tiver algum conteúdo, imprime no arquivo
         void print(){
             cout << "Informações do pedido:" << endl;
-            //cout << "\tPedido n.° " << setw(3) << setfill('0') << this -> numero << endl;
             cout << "Cliente: " << cliente -> getNome() << " " << cliente -> getSobrenome() << endl;
             cout << "Endereço de entrega: " << endl;
             cout << cliente -> getEndereco() << endl;
@@ -66,5 +65,20 @@ class Pedido{
             }
             cout << "Total do pedido: R$" << fixed << setprecision(2) << this -> calculaPreco(produtos) << endl;
             cout << endl;
+        }
+
+        void printLog(ostream &saida){
+            //saida << "Informações do pedido:" << endl;
+            saida << "Pedido n.° " << setw(3) << setfill('0') << this -> numero << endl;
+            saida << "Cliente: " << cliente -> getNome() << " " << cliente -> getSobrenome() << endl;
+            saida << "Endereço de entrega: " << endl;
+            saida << cliente -> getEndereco() << endl;
+            saida << "Data do pedido: " << this -> data.getData() << endl;
+            saida << "Dados do Pedido: " << endl;
+            for (int i = 0; i < produtos.size(); i++){
+                produtos[i].printLog(saida);
+            }
+            saida << "Total do pedido: R$" << fixed << setprecision(2) << this -> calculaPreco(produtos) << endl;
+            saida << endl;
         }
 };

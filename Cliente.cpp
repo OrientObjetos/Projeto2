@@ -66,4 +66,13 @@ class Cliente: public Pessoa{
             cout << "Endereço: " << this -> getEndereco() << endl;
             cout << endl;
         }
+
+        virtual void printLog(ostream &saida){ 
+            //saida << "Dados do cliente" << endl;
+            saida << "Nome: " << this -> getNome() << " " << this -> getSobrenome() << endl;
+            saida << "CPF: " << this -> getCPF() << endl;
+            saida << "Data de nascimento: " << this -> getNascimento() << endl;
+            saida << "Idade: " << this -> getIdade() << endl;
+            saida << "Endereço: " << this -> getEndereco() << endl << endl;
+        }
 };

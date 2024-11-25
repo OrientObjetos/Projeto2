@@ -47,7 +47,7 @@ class Ingrediente{
 
         string getUnidade(){
             return unidade;
-        }      
+        }
 
         void print(){
             cout << "Dados do ingrediente" << endl;
@@ -55,5 +55,13 @@ class Ingrediente{
             cout << "Preço: R$" << fixed << setprecision(5) << this -> preco << endl;
             cout << "Quantidade: " << this -> quantidade << " " << this -> unidade << endl;
             cout << endl;
+        }
+
+        void printLog(ostream &saida){
+            //saida << "Dados do ingrediente" << endl;
+            saida << "Nome: " << this -> nome << endl;
+            saida << "Preço: R$" << fixed << setprecision(5) << this -> preco << endl;
+            saida << "Quantidade: " << this -> quantidade << " " << this -> unidade << endl;
+            saida << endl;
         }
 };
