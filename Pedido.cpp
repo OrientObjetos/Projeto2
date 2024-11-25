@@ -11,14 +11,14 @@ using namespace std;
 class Pedido{
     protected:
         int numero;
-        Cliente *cliente;
+        Cliente cliente;
         Data data;
         vector <Produto> &produtos;
         float totalPedido = 0;
 
     public:
-        Pedido(Cliente *cliente, Data data, vector <Produto> &prod):
-            cliente{cliente}, data{data}, produtos(prod) {}
+        Pedido(Cliente cliente, Data data, vector <Produto> &produtos):
+            cliente{cliente}, data{data}, produtos(produtos) {}
 
         float calculaPreco(vector <Produto> produtos){
             for (int i = 0; i < produtos.size(); i++){
@@ -52,12 +52,11 @@ class Pedido{
             return totalPedido;
         }
 
-        // fazer ele receber uma string, se a string for null imprime no terminal, se tiver algum conteúdo, imprime no arquivo
         void print(){
             cout << "Informações do pedido:" << endl;
-            cout << "Cliente: " << cliente -> getNome() << " " << cliente -> getSobrenome() << endl;
+            cout << "Cliente: " << this -> cliente.getNome() << " " << this -> cliente.getSobrenome() << endl;
             cout << "Endereço de entrega: " << endl;
-            cout << cliente -> getEndereco() << endl;
+            cout << this -> cliente.getEndereco() << endl;
             cout << "Data do pedido: " << this -> data.getData() << endl;
             cout << "Dados do Pedido: " << endl;
             for (int i = 0; i < produtos.size(); i++){
@@ -68,11 +67,10 @@ class Pedido{
         }
 
         void printLog(ostream &saida){
-            //saida << "Informações do pedido:" << endl;
             saida << "Pedido n.° " << setw(3) << setfill('0') << this -> numero << endl;
-            saida << "Cliente: " << cliente -> getNome() << " " << cliente -> getSobrenome() << endl;
+            saida << "Cliente: " << this -> cliente.getNome() << " " << this -> cliente.getSobrenome() << endl;
             saida << "Endereço de entrega: " << endl;
-            saida << cliente -> getEndereco() << endl;
+            saida << this -> cliente.getEndereco() << endl;
             saida << "Data do pedido: " << this -> data.getData() << endl;
             saida << "Dados do Pedido: " << endl;
             for (int i = 0; i < produtos.size(); i++){

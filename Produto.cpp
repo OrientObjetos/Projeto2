@@ -72,37 +72,34 @@ class Produto{
         }
         
         void print(){
-            //cout << "Dados do produto:" << endl;
-            //cout << "  Nome: " << this -> nome << endl;
             cout << " -" << this -> nome << endl;
             cout << "  Preço: R$" << fixed << setprecision(2) << round(this -> calculaCusto(ingredientes, processos, sabor)) << endl;
             cout << "  Ingredientes utilizados: " << endl;
-            for (int i = 0; i < ingredientes.size(); i++){
+            for (int i = 0; i < ingredientes.size(); i++) {
                 cout << "    - " << ingredientes[i].getNome() << endl;
             }
-            if (sabor.getNome() != "Nada"){
+            if (sabor.getNome() != "Nada") {
                 cout << "    - " << sabor.getNome() << endl;
             }
             cout << "  Processos realizados: " << endl;
-            for (int i = 0; i < processos.size(); i++){
+            for (int i = 0; i < processos.size(); i++) {
                 cout << "    - " << processos[i].getNome() << endl;
             }
             cout << endl;
         }
 
-        void printLog(ostream &saida){
-            //saida << "Dados do produto:" << endl;
+        void printLog(ostream &saida) {
             saida << "Nome: " << this -> nome << endl;
             saida << "Preço: R$" << fixed << setprecision(2) << round(this -> calculaCusto(ingredientes, processos, sabor)) << endl;
             saida << "Ingredientes utilizados: " << endl;
-            for (int i = 0; i < ingredientes.size(); i++){
+            for (int i = 0; i < ingredientes.size(); i++) {
                 saida << " - " << ingredientes[i].getNome() << endl;
             }
             if (sabor.getNome() != "Nada"){
                 saida << " - " << sabor.getNome() << endl;
             }
             saida << "Processos realizados: " << endl;
-            for (int i = 0; i < processos.size(); i++){
+            for (int i = 0; i < processos.size(); i++) {
                 saida << " - " << processos[i].getNome() << endl;
             }
             saida << endl;

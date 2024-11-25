@@ -35,7 +35,6 @@ Data de apresentação do projeto: 24/11/2024
 using namespace std;
 
 // ================================================================================================================
-
 // Definição das variáveis globais
 
 // Definição dos operadores
@@ -78,8 +77,7 @@ Produto boloSimples("Bolo simples", ingredientes, processos, sabores[5]);
 vector <Produto> bolos = {boloAbacaxi, boloBanana, boloChocolate, boloFuba, boloLaranja, boloSimples};
 
 // Vetor para salvar os pedidos
-vector <Pedido> pedidos;
-
+vector <Pedido> pedidos = {};
 // ================================================================================================================
 
 // Função para gerar um arquivo de log da execução
@@ -222,6 +220,7 @@ void Log() {
         log << "Pedidos realizados:" << endl << endl;
         for (int i = 0; i < pedidos.size(); i++) {
             pedidos[i].setNumero(i + 1);
+            //pedidos[i].print();
             pedidos[i].printLog(log);
         }
         
@@ -471,7 +470,7 @@ void Pedir() {
             }
 
             // Cria o pedido e exibe as informações
-            Pedido ped(cliente, hoje, produtos);
+            Pedido ped(*cliente, hoje, produtos);
             ped.print();
 
             // Salva o pedido em um vetor de pedidos
