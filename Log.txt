@@ -139,7 +139,25 @@ Data de nascimento: 19/9/2002
 Idade: 22
 Endereço: Av. Humberto de Alencar Castelo Branco, 4182 - Assunção, São Bernardo do Campo - SP
 
+Nome: Gustavo Rosell
+CPF: 2
+Data de nascimento: 20/7/2003
+Idade: 21
+Endereço: Av. abc, 3 - Assunção, São bernarddo - SP
+
+Nome: Gabrielle Magalhães
+CPF: 3
+Data de nascimento: 24/11/2024
+Idade: 23
+Endereço: Av. abcd, 1 - A, São Paulo - SP
+
 -------------------------------------------------------------
 
 Pedidos realizados:
 
+Pedido n.° 001
+Cliente: Gabrielle Magalhães
+Endereço de entrega: 
+Av. abcd, 1 - A, São Paulo - SP
+Data do pedido: 25/11/2024
+Dados do Pedido: 

@@ -77,7 +77,7 @@ Produto boloSimples("Bolo simples", ingredientes, processos, sabores[5]);
 vector <Produto> bolos = {boloAbacaxi, boloBanana, boloChocolate, boloFuba, boloLaranja, boloSimples};
 
 // Vetor para salvar os pedidos
-vector <Pedido> pedidos = {};
+vector <Pedido> pedidos;
 // ================================================================================================================
 
 // Função para gerar um arquivo de log da execução
